@@ -1,0 +1,74 @@
+{
+    "name": "@mk-singh/web-utils",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "A collection of TypeScript utilities for Deno including route factory with navigation support",
+    "author": {
+        "name": "MK Singh",
+        "email": "CAMukeshKumarSingh@gmail.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BadgerBloke/web-utils"
+    },
+    "homepage": "https://github.com/BadgerBloke/web-utils",
+    "bugs": {
+        "url": "https://github.com/BadgerBloke/web-utils/issues"
+    },
+    "keywords": [
+        "typescript",
+        "deno",
+        "utilities",
+        "route-factory",
+        "navigation",
+        "routing",
+        "path-resolution",
+        "tree-shaking"
+    ],
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "sideEffects": false,
+    "scripts": {
+        "clean": "rm -rf ./lib",
+        "generate:exports": "node scripts/generate-exports.js",
+        "prebuild": "npm run generate:exports",
+        "build": "npm run clean && npm run prebuild && tsc -p ./tsconfig.json",
+        "prepack": "npm run build",
+        "test": "node --experimental-strip-types --test"
+    },
+    "files": [
+        "lib/**/*",
+        "README.md"
+    ],
+    "devDependencies": {
+        "@types/node": "^22.16.5"
+    },
+    "peerDependencies": {
+        "typescript": "^5",
+        "zod": "^4.0.10"
+    },
+    "exports": {
+        ".": {
+            "types": "./lib/types/index.d.ts",
+            "import": "./lib/index.js"
+        },
+        "./factories": {
+            "types": "./lib/types/factories/index.d.ts",
+            "import": "./lib/factories/index.js"
+        },
+        "./route-factory": {
+            "types": "./lib/types/factories/route-factory.d.ts",
+            "import": "./lib/factories/route-factory.js"
+        },
+        "./zod/get-defaults": {
+            "types": "./lib/types/zod/get-defaults.d.ts",
+            "import": "./lib/zod/get-defaults.js"
+        },
+        "./zod": {
+            "types": "./lib/types/zod/index.d.ts",
+            "import": "./lib/zod/index.js"
+        },
+        "./package.json": "./package.json"
+    }
+}
