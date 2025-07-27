@@ -1,4 +1,4 @@
-# @mk-singh/web-utils
+# [@mk-singh/utils](https://www.npmjs.com/package/@mk-singh/utils)
 
 ## Why This Library?
 
@@ -19,14 +19,14 @@ This library solves these problems by providing a declarative way to define your
 - ✅ **Next.js** (App Router & Pages Router)
 - ✅ **Vanilla JavaScript** (Framework agnostic)
 - ✅ **TypeScript** (Full type support)
-- ✅ **Any JavaScript bundler** (Webpack, Vite, Rollup, etc.)# @mk-singh/web-utils
+- ✅ **Any JavaScript bundler** (Webpack, Vite, Rollup, etc.)# @mk-singh/utils
 
 A collection of JavaScript utility functions designed for modern web development, with special focus on React.js applications. Modular and tree-shakeable for optimal bundle sizes.
 
 ## Installation
 
 ```javascript
-import { createRoutes } from "@mk-singh/web-utils";
+import { createRoutes } from "@mk-singh/utils";
 ```
 
 ## Modular Imports
@@ -35,7 +35,7 @@ Import only what you need to keep your bundle size small:
 
 ```javascript
 // Import specific utilities
-import { createRoutes } from "@mk-singh/web-utils/factories/route-factory";
+import { createRoutes } from "@mk-singh/utils/route-factory";
 ```
 
 ## Features
@@ -60,7 +60,7 @@ Transforms a route configuration object into a fully resolved route structure wi
 ```tsx
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { createRoutes } from "@mk-singh/web-utils/factories/route-factory";
+import { createRoutes } from "@mk-singh/utils/route-factory";
 
 // Define your route configuration
 const routeConfig = {
@@ -83,7 +83,7 @@ const routeConfig = {
         step: 3,
         prevPath: "./user/settings",
     },
-};
+} as const;
 
 // Generate routes with base path
 const routes = createRoutes("/app", routeConfig);
@@ -126,7 +126,7 @@ function Settings() {
 #### Basic Example
 
 ```javascript
-import { createRoutes } from "@mk-singh/web-utils/factories/route-factory";
+import { createRoutes } from "@mk-singh/utils/route-factory";
 
 const routeConfig = {
     start: { path: "start" },
@@ -148,7 +148,7 @@ const routeConfig = {
         step: 3,
         prevPath: "./onboarding/businessDetails",
     },
-};
+} as const;
 
 const routes = createRoutes("/client", routeConfig);
 
